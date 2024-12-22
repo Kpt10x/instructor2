@@ -1,0 +1,78 @@
+<div class="create-instructor-container">
+  <h1>Create Instructor</h1>
+  <form [formGroup]="createInstructorForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input id="name" type="text" formControlName="name" placeholder="Enter full name" />
+      <small *ngIf="createInstructorForm.get('name')?.invalid && createInstructorForm.get('name')?.touched">
+        Name is required.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" placeholder="Enter email" />
+      <small *ngIf="createInstructorForm.get('email')?.invalid && createInstructorForm.get('email')?.touched">
+        Valid email is required.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input id="phone" type="tel" formControlName="phone" placeholder="Enter phone number" />
+      <small *ngIf="createInstructorForm.get('phone')?.invalid && createInstructorForm.get('phone')?.touched">
+        Phone number is required.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Subject Expertise</label>
+      <input id="subject" type="text" formControlName="subject" placeholder="Enter subject expertise" />
+      <small *ngIf="createInstructorForm.get('subject')?.invalid && createInstructorForm.get('subject')?.touched">
+        Subject is required.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="experience">Experience (Years)</label>
+      <input id="experience" type="number" formControlName="experience" placeholder="Enter years of experience" />
+      <small *ngIf="createInstructorForm.get('experience')?.invalid && createInstructorForm.get('experience')?.touched">
+        Experience is required.
+      </small>
+    </div>
+
+    <button type="submit" [disabled]="createInstructorForm.invalid">Submit</button>
+  </form>
+
+  <!-- Instructor Table -->
+  <div *ngIf="instructors.length > 0" class="instructor-table-container">
+    <h2>Instructor List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Subject</th>
+          <th>Experience</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let instructor of instructors; let i = index">
+          <td>{{ instructor.id }}</td>
+          <td>{{ instructor.name }}</td>
+          <td>{{ instructor.email }}</td>
+          <td>{{ instructor.phone }}</td>
+          <td>{{ instructor.subject }}</td>
+          <td>{{ instructor.experience }}</td>
+          <td>
+            <button (click)="onEdit(i)">Edit</button>
+            <button (click)="onDelete(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

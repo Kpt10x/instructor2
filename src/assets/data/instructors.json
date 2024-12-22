@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "name": "Nithin",
+      "email": "nithin123@example.com",
+      "phone": "1234567890",
+      "subject": "Mathematics",
+      "experience": 5
+    },
+    {
+      "id": 2,
+      "name": "Prabash",
+      "email": "prabash12@example.com",
+      "phone": "0987654321",
+      "subject": "Physics",
+      "experience": 8
+    }
+  ]
+  
