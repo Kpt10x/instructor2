@@ -23,8 +23,6 @@ export class CreateInstructorComponent implements OnInit {
       phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
       subject: ['', Validators.required],
       experience: ['', [Validators.required, Validators.min(1)]],
-      start_date: ['', Validators.required],
-      end_date: ['', Validators.required],
     });
   }
 
